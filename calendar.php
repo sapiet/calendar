@@ -51,11 +51,18 @@ class Calendar
     public function getWeeksCount()
     {
         $start = $this->getFirstDay();
-        $end = (clone $start)->modify('+1 month -1 day');
-        $weeksCount = intval($end->format('W')) - intval($start->format('W')) + 1;
+        $end = $start->modify('+1 month -1 day');
+        $startWeek = intval($start->format('W'));
+        $endWeek = intval($end->format('W'));
+
+        if ($endWeek === 1) {
+            $endWeek = $end->modify('-7 day')->format('W') + 1;
+        }
+
+        $weeksCount = $endWeek - $startWeek + 1;
 
         if ($weeksCount < 0) {
-            $weeksCount = intval($start->format('W'));
+            $weeksCount = intval($end->format('W'));
         }
 
         return $weeksCount;
@@ -73,12 +80,13 @@ class Calendar
 
     public function getFirstDay()
     {
-        return new DateTime($this->year.'-'.$this->month.'-01');
+        return new DateTimeImmutable($this->year.'-'.$this->month.'-01');
     }
 
     public function getLastMondayBeforeFirstDay()
     {
-        return $this->getFirstDay()->modify('last monday');
+        $firstDay = $this->getFirstDay();
+        return $firstDay->format('N') === '1' ? $firstDay : $this->getFirstDay()->modify('last monday');
     }
 
     public function get()
@@ -93,7 +101,7 @@ class Calendar
             $week = [];
 
             foreach (DAYS as $j => $day) {
-                $date = (clone $lastMondayBeforeFirstDay)->modify('+'.($j + $i * 7).'days');
+                $date = $lastMondayBeforeFirstDay->modify('+'.($j + $i * 7).'days');
 
                 $week[] = (object) [
                     'isActive' => $date->format('d-m-Y') === $today,
