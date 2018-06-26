@@ -1,0 +1,18 @@
+{
+	"javascriptsGroups" : {
+	},
+	"stylesheetsGroups" : [
+		{
+			"parent" : "calendar.scss",
+			"destination" : "calendar.css",
+			"files" : [
+				"calendar.scss"
+			]
+		}
+	],
+	"options" : {
+		"minifyCss" : {
+			"advanced": true
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"host" : "seraphin/app_dev.php",
+	"browser": "google-chrome",
+	"workSpacePath" : "/home/xavierq/dev",
+	"paths" : [
+		"src/**/*.js",
+		"src/**/*.scss"
+	],
+	"scss"          : true,
+	"js"            : true,
+	"browserSync"   : true
+}

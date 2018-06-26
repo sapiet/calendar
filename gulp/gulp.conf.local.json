@@ -1,0 +1,11 @@
+{
+	"host" : "localhost/calendar",
+	"browser": "google-chrome",
+	"paths" : [
+		"**/*.js",
+		"**/*.scss"
+	],
+	"scss"          : true,
+	"js"            : true,
+	"browserSync"   : true
+}
