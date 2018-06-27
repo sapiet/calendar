@@ -19,8 +19,8 @@
 
 <br><br>
 
-<?php foreach(DAYS as $day): ?>
-    <?= substr($day, 0, 3) ?>
+<?php foreach(Calendar::getShortDays() as $day): ?>
+    <?= $day ?>
 <?php endforeach; ?>
 
 <br>
@@ -29,14 +29,14 @@
     <?php foreach ($week as $day): ?>
         <?php if ($day->isActive): ?>
             <strong>
-                <?= $day->date->format('j') ?>
+                <?= $day->date ?>
             </strong>
         <?php elseif (!$day->isSameMonth): ?>
             <i>
-                <?= $day->date->format('j') ?>
+                <?= $day->date ?>
             </i>
         <?php else: ?>
-            <?= $day->date->format('j') ?>
+            <?= $day->date ?>
         <?php endif; ?>
     <?php endforeach; ?>
     <br>

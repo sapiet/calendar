@@ -4,7 +4,7 @@
     $year = array_key_exists('year', $_GET) ? $_GET['year'] : null;
     $calendar = new Calendar($month, $year);
 ?><!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <title>Calendar</title>
         <meta charset="UTF-8">
@@ -39,10 +39,9 @@
 
                 <div class="calendar">
                     <div class="header">
-                        <?php foreach(DAYS as $day): ?>
+                        <?php foreach(Calendar::getShortDays() as $day): ?>
                             <span>
-                            <?= substr($day, 0, 3) ?>
-                                
+                                <?= $day ?>
                             </span>
                         <?php endforeach; ?>
                     </div>
@@ -58,7 +57,7 @@
                                         "
                                     >
                                         <span>
-                                            <?= $day->date->format('j') ?>
+                                            <?= $day->date ?>
                                         </span>
                                     </div>
                                 <?php endforeach; ?>
