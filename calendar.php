@@ -71,7 +71,7 @@ class Calendar
      */
     public function getTranslatedMonth(int $month): string
     {
-        if (!array_key_exists($month, self::MONTHS)) {
+        if (!array_key_exists($month - 1, self::MONTHS)) {
             throw new Exception('Mois '.$month.' introuvable');
         }
 
@@ -86,7 +86,7 @@ class Calendar
      */
     public function getTranslatedDay(int $day): string
     {
-        if (!array_key_exists($day, self::DAYS)) {
+        if (!array_key_exists($day - 1, self::DAYS)) {
             throw new Exception('Jour '.$day.' introuvable');
         }
 
