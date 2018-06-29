@@ -1,19 +1,8 @@
-<?php
-    require 'calendar.php';
-    $month = array_key_exists('month', $_GET) ? $_GET['month'] : null;
-    $year = array_key_exists('year', $_GET) ? $_GET['year'] : null;
-    $calendar = new Calendar($month, $year);
-?>
-
-<?= $calendar->getCurrentDay()->day ?>
-<?= $calendar->getCurrentDay()->date ?>
-<br><br>
-
-<a href="?month=<?= $calendar->getPreviousMonth()->month ?>&year=<?= $calendar->getPreviousMonth()->year ?>">
+<a href="?month=<?= $calendar->getPreviousMonth()->month ?>&year=<?= $calendar->getPreviousMonth()->year ?>" data-change-month>
     <
 </a>
 <?= $calendar->toString() ?>
-<a href="?month=<?= $calendar->getNextMonth()->month ?>&year=<?= $calendar->getNextMonth()->year ?>">
+<a href="?month=<?= $calendar->getNextMonth()->month ?>&year=<?= $calendar->getNextMonth()->year ?>" data-change-month>
     >
 </a>
 

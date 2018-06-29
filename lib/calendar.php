@@ -141,6 +141,15 @@ class Calendar
     }
 
     /**
+     * Retourne l'heure courante
+     * @return stdClass L'heure courante
+     */
+    public function getCurrentHour(): string
+    {
+        return (new DateTime())->format('H:i:s');
+    }
+
+    /**
      * Retourne le premier jour du mois
      * @return DateTimeInterface Le premier jour du mois
      */

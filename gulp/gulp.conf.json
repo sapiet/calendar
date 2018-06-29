@@ -3,10 +3,10 @@
 	},
 	"stylesheetsGroups" : [
 		{
-			"parent" : "calendar.scss",
-			"destination" : "calendar.css",
+			"parent" : "assets/stylesheets/calendar.scss",
+			"destination" : "assets/stylesheets/calendar.css",
 			"files" : [
-				"calendar.scss"
+				"assets/stylesheets/calendar.scss"
 			]
 		}
 	],
